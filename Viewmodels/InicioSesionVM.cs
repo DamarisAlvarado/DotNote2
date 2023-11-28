@@ -44,7 +44,7 @@ namespace DotNote2.Viewmodels
         public async Task ObtenerDatos()
         {
             var user = await SecureStorage.Default.GetAsync("usuario");
-            var password = await SecureStorage.Default.GetAsync("usuario");
+            var password = await SecureStorage.Default.GetAsync("password");
             Username = user != null ? user: string.Empty;
             Password = password != null ? password : string.Empty;
         }

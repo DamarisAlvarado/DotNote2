@@ -36,7 +36,7 @@ namespace DotNote2.Viewmodels
         {
             Usuario usuario = new Usuario()
             {
-                Username = username, Password = password, Email = email
+                Username = Username, Password = Password, Email = Email
             };
             if(await sqlite.CrearModificaraUsuarioAsync(usuario)) 
             {
