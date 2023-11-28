@@ -38,23 +38,38 @@ namespace DotNote2.Viewmodels
         [RelayCommand]
         public async Task Registrar()
         {
-            Usuario usuario = new Usuario()
+            try
             {
-                NameSurname = NameSurname, Username = Username, Password = Password, Email = Email
-            };
-            if(await sqlite.CrearModificaraUsuarioAsync(usuario)) 
-            {
-                await MostrarMensaje.Informacion("Usuario creado");
-                await SecureStorage.Default.SetAsync("usuario",usuario.Username);
-                await SecureStorage.Default.SetAsync("password", usuario.Password);
-            }
-            else
-            {
-                await MostrarMensaje.Informacion("Usuario no creado");
-            }
-            await Application.Current.MainPage.Navigation.PopAsync();
-            await MainPage.iniciar.ObtenerDatos();
-        }
+                IsBusy = true;
 
+                Usuario usuario = new Usuario()
+                {
+                    NameSurname = NameSurname,
+                    Username = Username,
+                    Password = Password,
+                    Email = Email
+                };
+                if (await sqlite.CrearModificaraUsuarioAsync(usuario))
+                {
+                    await MostrarMensaje.Informacion("Usuario creado");
+                    await SecureStorage.Default.SetAsync("usuario", usuario.Username);
+                    await SecureStorage.Default.SetAsync("password", usuario.Password);
+                }
+                else
+                {
+                    await MostrarMensaje.Informacion("Usuario no creado");
+                }
+            }
+            catch (Exception ex)
+            {
+                await MostrarMensaje.Error($"Registrar: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
+                await Application.Current.MainPage.Navigation.PopAsync();
+                await MainPage.iniciar.ObtenerDatos();
+            }
+        }
     }
 }
