@@ -52,6 +52,17 @@ namespace DotNote2.Servicios
         }
 
         /// <summary>
+        /// Metodo para iniciar sesion
+        /// </summary>
+        /// <param name="usuario">Usuario</param>
+        /// <param name="password">Contraseña</param>
+        /// <returns>El usuario; o null, si no se encuentra</returns>
+        public async Task<Usuario> IniciarSesionAsync(string usuario, string password)
+        {
+            return await Task.FromResult(await _database.Table<Usuario>().Where(u => u.Username == usuario && u.Password == password).FirstOrDefaultAsync());
+        }
+
+        /// <summary>
         /// Crea o modifica una nota pasada como parametro.
         /// </summary>
         /// <param name="nota">Nota a insertar o modificar</param>
