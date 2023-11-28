@@ -3,11 +3,6 @@ using CommunityToolkit.Mvvm.Input;
 using DotNote2.Servicios;
 using DotNote2.Servicios.Utilities;
 using DotNote2.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotNote2.Viewmodels
 {

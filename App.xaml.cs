@@ -13,14 +13,6 @@ namespace DotNote2
         {
             InitializeComponent();
             MainPage = new AppShell();
-            Usuario = new Usuario()
-            { 
-                Id = 100,
-                NameSurname = "Damaris",
-                Username = "damaris",
-                Password = "damaris",
-                Email = "damaris@gmail.com"
-            };
         }
     }
 }

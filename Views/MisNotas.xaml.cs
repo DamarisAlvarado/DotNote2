@@ -5,7 +5,7 @@ namespace DotNote2.Views;
 
 public partial class MisNotas : ContentPage
 {
-    MisNotasViewmodel vm;
+    public static MisNotasViewmodel vm;
     public MisNotas()
     {
         InitializeComponent();
@@ -13,7 +13,6 @@ public partial class MisNotas : ContentPage
         BindingContext = vm;
     }
 
-  
     public async void Contacto(object sender, EventArgs e)
     {
         await  Navigation.PushAsync(new Contacto());

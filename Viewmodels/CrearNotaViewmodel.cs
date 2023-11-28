@@ -5,6 +5,7 @@ using DotNote2.Servicios;
 using DotNote2.Servicios.Utilities;
 using System.Collections.ObjectModel;
 using System;
+using DotNote2.Views;
 
 namespace DotNote2.Viewmodels
 {
@@ -33,16 +34,6 @@ namespace DotNote2.Viewmodels
                 Header = nota.Header;
                 Body = nota.Body;
             }
-        }
-        ObservableCollection<Nota> notas { get; } = new();
-
-        public async Task Obtenernotas()
-        {
-
-            SQLiteService = new SQLiteService();
-            var lista = await SQLiteService.ObtenerMisNotasAsync(App.Usuario);
-            foreach (var nota in lista) { notas.Add(nota); }
-
         }
 
         [RelayCommand]
@@ -88,6 +79,7 @@ namespace DotNote2.Viewmodels
             {
                 IsBusy = false;
                 await Application.Current.MainPage.Navigation.PopAsync();
+                await MisNotas.vm.Obtenernotas();
             }
         }
     }

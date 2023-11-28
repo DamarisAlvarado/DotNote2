@@ -12,7 +12,7 @@ namespace DotNote2.Viewmodels
         public string nombre { get; set; }
         public MisNotasViewmodel()
         {
-             nombre = App.Usuario.Username;
+             nombre = App.Usuario.NameSurname;
         }
 
         private SQLiteService SQLiteService;

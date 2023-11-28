@@ -19,18 +19,6 @@ namespace DotNote2
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddSingleton<CrearNotaViewmodel>();
-            builder.Services.AddSingleton<InicioSesionVM>();
-            builder.Services.AddSingleton<MisNotasViewmodel>();
-            builder.Services.AddSingleton<RegistroVM>();
-            builder.Services.AddSingleton<BaseViewmodel>();
-
-            builder.Services.AddTransient<MisNotas>();
-            builder.Services.AddTransient<MainPage>();
-            builder.Services.AddTransient<Contacto>();
-            builder.Services.AddTransient<CrearNotaView>();
-            builder.Services.AddTransient<RegistroView>();
-
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

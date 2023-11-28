@@ -6,7 +6,7 @@
              xmlns:m="clr-namespace:DotNote2.Models"
              x:Class="DotNote2.Views.MisNotas"
              Loaded="ContentPage"
-             Title="MisNotas">
+             Title="Mis notas">
 
 
     <Grid RowDefinitions="Auto,Auto,*,Auto">
@@ -22,7 +22,7 @@
             Grid.Row="1"
             ColumnDefinitions="auto,*,*" >
             <Image  Grid.Column="0" Margin="40,10" HeightRequest="150" HorizontalOptions="Start" Source="damaris.jpg" />
-            <Label FontSize="16" Grid.Column="1" Margin="20,40"  Text="{Binding nombre}" ></Label>
+            <Label FontSize="16" Grid.Column="1" Margin="20,40"  Text="{Binding nombre}" />
             <ImageButton Background="{StaticResource Primary}"  Grid.Column="2" HorizontalOptions="Center" Margin="90,10" CornerRadius="50" Padding="10" HeightRequest="50" Source="crear_nota.png" BackgroundColor="SpringGreen" Command="{Binding IrCrearNotaCommand}" />
         </Grid>
 
@@ -31,10 +31,10 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="m:Nota">
                         <Frame  HeightRequest="190" Margin="30" BackgroundColor="{StaticResource Primary}">
-                            <Grid  ColumnDefinitions="*,auto" RowDefinitions="*,*,*">
-                                <Label  FontAttributes="Bold" Padding="30" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0"  Text="{Binding Header}"></Label>
-                                <Label Margin="15" Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0" Grid.Row="1"  Text="{Binding Body}"></Label>
-                                <Label Margin="15" Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0" Grid.Row="2"  Text="{Binding Time}"></Label>
+                            <Grid  ColumnDefinitions="*,auto" RowDefinitions="*,*,*" RowSpacing="2">
+                                <Label  FontAttributes="Bold" Padding="30" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0"  Text="{Binding Header}" />
+                                <Label Margin="15" Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0" Grid.Row="1"  Text="{Binding Body}"/>
+                                <Label Margin="15" Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0" Grid.Row="2"  Text="{Binding Time}"/>
                                 <ImageButton 
                                         Grid.Column="1"
                                         Grid.Row="1"
@@ -43,7 +43,7 @@
                                         Padding="5"
                                         CornerRadius="5"
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MisNotasViewmodel}}, Path=EmailCommand}"
-                                        CommandParameter="{Binding Id}"/>
+                                        CommandParameter="{Binding .}"/>
                                 <ImageButton 
                                         Grid.Column="1" 
                                         Source="eliminar.png"
