@@ -23,8 +23,4 @@ public partial class MisNotas : ContentPage
     {
         await vm.Obtenernotas();
     }
-    public async void EliminarNota(object sender, EventArgs e)
-    {
-        await vm.Eliminar();
-    }
 }

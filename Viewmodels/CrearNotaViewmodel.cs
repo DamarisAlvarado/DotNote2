@@ -21,7 +21,7 @@ namespace DotNote2.Viewmodels
         private SQLiteService SQLiteService;
         private Nota Nota;
       
-        public CrearNotaViewmodel(Nota? nota) 
+        public CrearNotaViewmodel(Nota nota) 
         {
             SQLiteService = new SQLiteService();
             Header = string.Empty;

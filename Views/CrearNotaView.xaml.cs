@@ -5,7 +5,7 @@ namespace DotNote2.Views;
 
 public partial class CrearNotaView : ContentPage
 {
-	public CrearNotaView(Nota? nota)
+	public CrearNotaView(Nota nota)
 	{
 		InitializeComponent();
 		BindingContext = new CrearNotaViewmodel(nota);

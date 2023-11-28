@@ -1,4 +1,5 @@
 ﻿using DotNote2.Viewmodels;
+using DotNote2.Views;
 using Microsoft.Extensions.Logging;
 
 namespace DotNote2
@@ -18,6 +19,7 @@ namespace DotNote2
 
             builder.Services.AddSingleton<CrearNotaViewmodel>();
             builder.Services.AddSingleton<InicioSesionVM>();
+            builder.Services.AddTransient<MisNotas>();
             builder.Services.AddSingleton<MisNotasViewmodel>();
 
 #if DEBUG

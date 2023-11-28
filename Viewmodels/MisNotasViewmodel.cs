@@ -19,25 +19,25 @@ namespace DotNote2.Viewmodels
             SQLiteService = new SQLiteService();
             var lista = await SQLiteService.ObtenerMisNotasAsync(App.Usuario);
             foreach (var nota in lista) { notas.Add(nota); }
-
         }
-        public async Task Eliminar()
-        {
-          // no funciona 
-            SQLiteService = new SQLiteService();
-            await SQLiteService.BorrarNotaAsync(App.Usuario);
-            
 
+        [RelayCommand]
+        public async Task Eliminar(int id)
+        {
+            // Si funciona
+            SQLiteService = new SQLiteService();
+            await SQLiteService.BorrarNotaAsync(id);
+            await Obtenernotas();
         }
 
 
         [RelayCommand]
-        public async Task IrCrearNota()
+        public async Task IrCrearNota(Nota nota)
         {
             try
             {
                 IsBusy = true;
-                await Application.Current.MainPage.Navigation.PushAsync(new CrearNotaView());
+                await Application.Current.MainPage.Navigation.PushAsync(new CrearNotaView(nota));
             }
             catch (Exception ex)
             {
