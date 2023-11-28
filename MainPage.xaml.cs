@@ -14,6 +14,9 @@ namespace DotNote2
 
         }
 
-        
+        private async void ContentPage_Loaded(object sender, EventArgs e)
+        {
+            await iniciar.ObtenerDatos();
+        }
     }
 }

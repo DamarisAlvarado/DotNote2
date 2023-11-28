@@ -39,6 +39,16 @@ namespace DotNote2.Viewmodels
                 await Application.Current.MainPage.Navigation.PushAsync(new MisNotas());
             }
         }
+
+        [RelayCommand]
+        public async Task ObtenerDatos()
+        {
+            var user = await SecureStorage.Default.GetAsync("usuario");
+            var password = await SecureStorage.Default.GetAsync("password");
+            Username = user != null ? user: string.Empty;
+            Password = password != null ? password : string.Empty;
+        }
+
         [RelayCommand]
         public async Task IrRegistrar()
         {

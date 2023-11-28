@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:DotNote2.Viewmodels"
               x:DataType="vm:InicioSesionVM"
-             x:Class="DotNote2.MainPage">
+             Loaded="ContentPage_Loaded"
+             x:Class="DotNote2.MainPage"
+             Title="MainPage">
 
     <ScrollView>
         <VerticalStackLayout
@@ -20,12 +22,12 @@
                 HorizontalOptions="Center"
                 WidthRequest="150"/>
 
-            <Entry Text=""
+            <Entry Text="{Binding Username}"
                    HorizontalOptions="Center"
                    WidthRequest="250"
                    Placeholder="Usuario"/>
 
-            <Entry Text=""
+            <Entry Text="{Binding Password}"
                    HorizontalOptions="Center"
                    WidthRequest="250"
                    Placeholder="Contraseña"/>
