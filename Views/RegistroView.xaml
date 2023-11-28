@@ -5,31 +5,38 @@
              x:DataType="vm:RegistroVM"
              x:Class="DotNote2.Views.RegistroView"
              Title="Registrar">
-    
-    <VerticalStackLayout Spacing="20" Padding="20">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
 
-        <Label Text="Registrate"
-               FontSize="40"
-               HorizontalOptions="Center"
-               Padding="10"/>
+            <Label Text="Registrate"
+                   FontSize="40"
+                   HorizontalOptions="Center"
+                   Padding="10"/>
 
-        <Entry Text="{Binding Username}"
-               HorizontalOptions="Center"
-               WidthRequest="250"
-               Placeholder="Usuario"/>
+            <Entry Text="{Binding NameSurname}"
+                   HorizontalOptions="Center"
+                   WidthRequest="250"
+                   Placeholder="Nombre y apellido"/>
+
+            <Entry Text="{Binding Username}"
+                   HorizontalOptions="Center"
+                   WidthRequest="250"
+                   Placeholder="Usuario"/>
         
-        <Entry Text="{Binding Email}"
-               HorizontalOptions="Center"
-               WidthRequest="250"
-               Placeholder="Email"/>
+            <Entry Text="{Binding Email}"
+                   HorizontalOptions="Center"
+                   WidthRequest="250"
+                   Placeholder="Email"/>
 
-        <Entry Text="{Binding Password}"
-               HorizontalOptions="Center"
-               WidthRequest="250"
-               Placeholder="Contraseña"/>
+            <Entry Text="{Binding Password}"
+                   HorizontalOptions="Center"
+                   WidthRequest="250"
+                   Placeholder="Contraseña"
+                   IsPassword="True"/>
 
-        <Button Text="Registrate"
-                Command="{Binding RegistrarCommand}"
-                WidthRequest="300"/>
-    </VerticalStackLayout>
+            <Button Text="Registrate"
+                    Command="{Binding RegistrarCommand}"
+                    WidthRequest="300"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

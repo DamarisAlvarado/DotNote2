@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DotNote2.Servicios;
+using DotNote2.Servicios.Utilities;
 using DotNote2.Views;
 using System;
 using System.Collections.Generic;
@@ -30,29 +31,68 @@ namespace DotNote2.Viewmodels
         [RelayCommand]
         public async Task IniciarSesion()
         {
-            var usuario = await sqlite.IniciarSesionAsync(Username,Password);
-            if (usuario != null)
+            try
             {
-                App.Usuario = usuario;
-                await SecureStorage.Default.SetAsync("usuario",usuario.Username);
-                await SecureStorage.Default.SetAsync("password",usuario.Password);
-                await Application.Current.MainPage.Navigation.PushAsync(new MisNotas());
+                IsBusy = true;
+
+                var usuario = await sqlite.IniciarSesionAsync(Username, Password);
+                if (usuario != null)
+                {
+                    App.Usuario = usuario;
+                    await SecureStorage.Default.SetAsync("usuario", usuario.Username);
+                    await SecureStorage.Default.SetAsync("password", usuario.Password);
+                    await Application.Current.MainPage.Navigation.PushAsync(new MisNotas());
+                }
+            }
+            catch (Exception ex) 
+            {
+                await MostrarMensaje.Error($"IniciarSesion: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
             }
         }
 
         [RelayCommand]
         public async Task ObtenerDatos()
         {
-            var user = await SecureStorage.Default.GetAsync("usuario");
-            var password = await SecureStorage.Default.GetAsync("password");
-            Username = user != null ? user: string.Empty;
-            Password = password != null ? password : string.Empty;
+            try
+            {
+                IsBusy = true;
+
+                var user = await SecureStorage.Default.GetAsync("usuario");
+                var password = await SecureStorage.Default.GetAsync("password");
+                Username = user != null ? user : string.Empty;
+                Password = password != null ? password : string.Empty;
+            }
+            catch (Exception ex)
+            {
+                await MostrarMensaje.Error($"ObtenerDatos: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [RelayCommand]
         public async Task IrRegistrar()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new RegistroView());
+            try
+            {
+                IsBusy = true;
+
+                await Application.Current.MainPage.Navigation.PushAsync(new RegistroView());
+            }
+            catch (Exception ex)
+            {
+                await MostrarMensaje.Error($"IrRegistrar: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

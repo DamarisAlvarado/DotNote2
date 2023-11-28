@@ -5,7 +5,7 @@ namespace DotNote2
     public partial class MainPage : ContentPage
     {
 
-        InicioSesionVM iniciar;
+        public static InicioSesionVM iniciar;
         public MainPage()
         {
             InitializeComponent();

@@ -5,7 +5,7 @@
               x:DataType="vm:InicioSesionVM"
              Loaded="ContentPage_Loaded"
              x:Class="DotNote2.MainPage"
-             Title="MainPage">
+             Title="Inicio de sesion">
 
     <ScrollView>
         <VerticalStackLayout
@@ -22,6 +22,10 @@
                 HorizontalOptions="Center"
                 WidthRequest="150"/>
 
+            <ActivityIndicator 
+                IsVisible="{Binding IsBusy}"
+                IsRunning="{Binding IsBusy}" />
+
             <Entry Text="{Binding Username}"
                    HorizontalOptions="Center"
                    WidthRequest="250"
@@ -30,14 +34,17 @@
             <Entry Text="{Binding Password}"
                    HorizontalOptions="Center"
                    WidthRequest="250"
-                   Placeholder="Contraseña"/>
+                   Placeholder="Contraseña"
+                   IsPassword="True"/>
 
             <Button Text="Iniciar sesion"
-                   Command="{Binding IniciarSesionCommand}"
+                    Command="{Binding IniciarSesionCommand}"
+                    IsEnabled="{Binding IsNotBusy}"
                     WidthRequest="300"/>
 
             <Button Text="Registrarse"
                     Command="{Binding IrRegistrarCommand}"
+                    IsEnabled="{Binding IsNotBusy}"
                     WidthRequest="300"/>
 
         </VerticalStackLayout>

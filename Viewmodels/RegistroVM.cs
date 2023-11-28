@@ -16,6 +16,9 @@ namespace DotNote2.Viewmodels
         SQLiteService sqlite;
 
         [ObservableProperty]
+        public string nameSurname;
+
+        [ObservableProperty]
         public string username;
 
         [ObservableProperty]
@@ -27,6 +30,7 @@ namespace DotNote2.Viewmodels
         public RegistroVM()
         {
             sqlite = new SQLiteService();
+            NameSurname = string.Empty;
             Username = string.Empty;
             Email = string.Empty;
             Password = string.Empty;
@@ -36,7 +40,7 @@ namespace DotNote2.Viewmodels
         {
             Usuario usuario = new Usuario()
             {
-                Username = Username, Password = Password, Email = Email
+                NameSurname = NameSurname, Username = Username, Password = Password, Email = Email
             };
             if(await sqlite.CrearModificaraUsuarioAsync(usuario)) 
             {
@@ -48,7 +52,8 @@ namespace DotNote2.Viewmodels
             {
                 await MostrarMensaje.Informacion("Usuario no creado");
             }
-            await Application.Current.MainPage.Navigation.PopAsync(); 
+            await Application.Current.MainPage.Navigation.PopAsync();
+            await MainPage.iniciar.ObtenerDatos();
         }
 
     }
