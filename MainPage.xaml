@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:DotNote2.Viewmodels"
+              x:DataType="vm:InicioSesionVM"
              x:Class="DotNote2.MainPage">
 
     <ScrollView>
@@ -30,11 +31,11 @@
                    Placeholder="Contraseña"/>
 
             <Button Text="Iniciar sesion"
-                    Command="{}"
+                   Command="{Binding IniciarSesionCommand}"
                     WidthRequest="300"/>
 
             <Button Text="Registrarse"
-                    "
+                    Command="{Binding IrRegistrarCommand}"
                     WidthRequest="300"/>
 
         </VerticalStackLayout>
