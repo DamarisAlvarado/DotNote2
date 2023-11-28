@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+  <g id="main">
+    <g id="icon">
+      <path d="M10.5,6L10.47,6.302L10.38,6.584L10.24,6.839L10.06,7.061L9.839,7.244L9.584,7.382L9.302,7.47L9,7.5L7.5,7.5L7.5,9L7.47,9.302L7.382,9.584L7.244,9.839L7.061,10.06L6.839,10.24L6.584,10.38L6.302,10.47L6,10.5L4.003,10.5L4.01,20L4.05,20.4L4.166,20.78L4.35,21.12L4.593,21.41L4.887,21.66L5.225,21.84L5.599,21.96L6,22L16,22L22,16L22,6L21.96,5.598L21.84,5.223L21.66,4.884L21.41,4.588L21.12,4.343L20.78,4.158L20.4,4.041L20,4L10.5,4zM18,9L18,11L8,11L8,9zM13,13L13,15L8,15L8,13zM20.5,15L15,20.5L15,15zz" fill="#252525"/>
+    </g>
+    <g id="overlay">
+      <polygon points="9,4 6,4 6,1 4,1 4,4 1,4 1,6 4,6 4,9 6,9 6,6 9,6" fill="#464646" stroke-linejoin="miter"/>
+    </g>
+  </g>
+</svg>
