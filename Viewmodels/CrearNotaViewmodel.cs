@@ -14,9 +14,6 @@ namespace DotNote2.Viewmodels
         [ObservableProperty]
         public string body;
 
-        [ObservableProperty]
-        public ImageSource image;
-
         public string ImageAttached;
 
         private SQLiteService SQLiteService;
@@ -27,60 +24,6 @@ namespace DotNote2.Viewmodels
             Header = string.Empty;
             Body = string.Empty;
             ImageAttached = string.Empty;
-        }
-
-        [RelayCommand]
-        public async Task ObtenerImagen()
-        {
-            try
-            {
-                IsBusy = true;
-
-                if(!MediaPicker.IsCaptureSupported)
-                {
-                    await MostrarMensaje.Precaucion("No se puede acceder a galería");
-                    return;
-                }
-
-                if(await MostrarMensaje.Camara("¿Como deseas adjuntar una imagen?"))
-                {
-                    var fotografia = await MediaPicker.Default.CapturePhotoAsync();
-                    if(fotografia != null)
-                    {
-                        string localFilePath = Path.Combine(FileSystem.AppDataDirectory, fotografia.FileName);
-
-                        Stream sourceStream = await fotografia.OpenReadAsync();
-                        FileStream localFileStream = File.OpenWrite(localFilePath);
-
-                        await sourceStream.CopyToAsync(localFileStream);
-                        ImageAttached = localFilePath;
-                        await CargarImagen();
-                    }
-                }
-                else
-                {
-                    var fotografia = await MediaPicker.Default.PickPhotoAsync();
-                    if (fotografia != null)
-                    {
-                        string localFilePath = Path.Combine(FileSystem.AppDataDirectory, fotografia.FileName);
-
-                        Stream sourceStream = await fotografia.OpenReadAsync();
-                        FileStream localFileStream = File.OpenWrite(localFilePath);
-
-                        await sourceStream.CopyToAsync(localFileStream);
-                        ImageAttached = localFilePath;
-                        await CargarImagen();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                await MostrarMensaje.Error($"ObtenerImagen: {ex.Message}");
-            }
-            finally
-            {
-                IsBusy = false;
-            }
         }
 
         [RelayCommand]
@@ -117,18 +60,6 @@ namespace DotNote2.Viewmodels
             {
                 IsBusy = false;
                 await Application.Current.MainPage.Navigation.PopAsync();
-            }
-        }
-
-        public async Task CargarImagen()
-        {
-            try
-            {
-                Image = ImageSource.FromFile(ImageAttached);
-            }
-            catch (Exception ex) 
-            {
-                await MostrarMensaje.Error($"CrearNota: {ex.Message}");
             }
         }
     }

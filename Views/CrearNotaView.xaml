@@ -36,14 +36,6 @@
                     Placeholder="e.j: Comprar comida para el gato"
                     Text="{Binding Body}"/>
 
-                <Button
-                    Text="Elegir imagen"
-                    Command="{Binding ObtenerImagenCommand}"
-                    WidthRequest="300"
-                    HorizontalOptions="Center"/>
-
-                <Image Source="{Binding Image}" Aspect="AspectFill" WidthRequest="100" />
-
             </VerticalStackLayout>
 
         </ScrollView>
@@ -52,6 +44,7 @@
             Grid.Row="2"
             Text="Guardar"
             Command="{Binding CrearNotaCommand}"
+            Margin="0,10"
             WidthRequest="300"
             HorizontalOptions="Center" />
 
