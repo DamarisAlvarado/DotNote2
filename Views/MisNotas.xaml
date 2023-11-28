@@ -10,20 +10,23 @@
     
     <ScrollView>
         <VerticalStackLayout >
-            <Label Text="Mis Notas" FontSize="Medium" Margin="20" FontAttributes="Bold" HorizontalOptions="Center" ></Label>
+            <Label Text="Mis Notas " FontSize="Medium" Margin="20" FontAttributes="Bold" HorizontalOptions="Center" ></Label>
             <Grid ColumnDefinitions="auto,*,*" >
                 <Image  Grid.Column="0" Margin="40,10" HeightRequest="150" HorizontalOptions="Start" Source="damaris.jpg" />
                 <Label FontSize="16" Grid.Column="1" Margin="20,40"  Text="Nombre Usuario" ></Label>
-                <ImageButton  Clicked="Pruebass" Grid.Column="2" HorizontalOptions="Center" Margin="90,10" CornerRadius="50" Padding="10" HeightRequest="60" Source="crear.png" BackgroundColor="SpringGreen" Command="{Binding IrCrearNotaCommand}" />
+                <ImageButton  Grid.Column="2" HorizontalOptions="Center" Margin="90,10" CornerRadius="50" Padding="10" HeightRequest="60" Source="crear.png" BackgroundColor="SpringGreen" Command="{Binding IrCrearNotaCommand}" />
             </Grid>
 
             <CollectionView Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding notas}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="m:Nota">
-                        <Frame HeightRequest="150" Margin="50" BackgroundColor="pink">
-                            <Grid ColumnSpacing="10" RowSpacing="10" ColumnDefinitions="*,auto" RowDefinitions="*,*">
-                                <Label Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0" Grid.RowSpan="2" Text="{Binding Header}"></Label>
-  
+                        <Frame HeightRequest="190" Margin="30" BackgroundColor="pink">
+                            <Grid  RowSpacing="10"  ColumnDefinitions="*,auto" RowDefinitions="*,*,*">
+                                <Label  FontAttributes="Bold" Padding="30" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0"  Text="{Binding Header}"></Label>
+                                <Label Margin="15" Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0" Grid.Row="1"  Text="{Binding Body}"></Label>
+                                <Label Margin="15" Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0" Grid.Row="2"  Text="{Binding Time}"></Label>
+                                <Button Grid.Column="1"  Text="eliminar"/>
+                                <Button Grid.Column="1" Grid.Row="1" Text="Editar" />
 
                             </Grid>
                         </Frame>

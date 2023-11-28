@@ -15,7 +15,7 @@ namespace DotNote2.Viewmodels
 
         public async Task Obtenernotas()
         {
-
+            notas.Clear();
             SQLiteService = new SQLiteService();
             var lista = await SQLiteService.ObtenerMisNotasAsync(App.Usuario);
             foreach (var nota in lista) { notas.Add(nota); }
