@@ -18,28 +18,35 @@
             HorizontalOptions="Center"
             Padding="10"/>
 
-        <VerticalStackLayout
-            Grid.Row="1"
-            Padding="15,5">
+        <ScrollView
+            Grid.Row="1">
 
-            <Label Text="Titulo de la nota"/>
-            <Entry 
-                Placeholder="e.j: Tareas por hacer"
-                Text="{Binding Header}"/>
+            <VerticalStackLayout
+                Padding="15,5"
+                Spacing="10">
 
-            <Label Text="Mensaje"/>
-            <Editor 
-                HeightRequest="250"
-                Placeholder="e.j: Comprar comida para el gato"
-                Text="{Binding Body}"/>
+                <Label Text="Titulo de la nota"/>
+                <Entry 
+                    Placeholder="e.j: Tareas por hacer"
+                    Text="{Binding Header}"/>
 
-            <Button
-                Text="Elegir imagen"
-                Command="{Binding ObtenerImagenCommand}"
-                WidthRequest="300"
-                HorizontalOptions="Center"/>
+                <Label Text="Mensaje"/>
+                <Editor 
+                    HeightRequest="250"
+                    Placeholder="e.j: Comprar comida para el gato"
+                    Text="{Binding Body}"/>
 
-        </VerticalStackLayout>
+                <Button
+                    Text="Elegir imagen"
+                    Command="{Binding ObtenerImagenCommand}"
+                    WidthRequest="300"
+                    HorizontalOptions="Center"/>
+
+                <Image Source="{Binding Image}" />
+
+            </VerticalStackLayout>
+
+        </ScrollView>
 
         <Button 
             Grid.Row="2"

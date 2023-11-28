@@ -14,6 +14,9 @@ namespace DotNote2.Viewmodels
         [ObservableProperty]
         public string body;
 
+        [ObservableProperty]
+        public ImageSource image;
+
         public string ImageAttached;
 
         private SQLiteService SQLiteService;
@@ -51,6 +54,7 @@ namespace DotNote2.Viewmodels
 
                         await sourceStream.CopyToAsync(localFileStream);
                         ImageAttached = localFilePath;
+                        await CargarImagen();
                     }
                 }
                 else
@@ -65,6 +69,7 @@ namespace DotNote2.Viewmodels
 
                         await sourceStream.CopyToAsync(localFileStream);
                         ImageAttached = localFilePath;
+                        await CargarImagen();
                     }
                 }
             }
@@ -112,6 +117,18 @@ namespace DotNote2.Viewmodels
             {
                 IsBusy = false;
                 await Application.Current.MainPage.Navigation.PopAsync();
+            }
+        }
+
+        public async Task CargarImagen()
+        {
+            try
+            {
+                Image = ImageSource.FromFile(ImageAttached);
+            }
+            catch (Exception ex) 
+            {
+                await MostrarMensaje.Error($"CrearNota: {ex.Message}");
             }
         }
     }
