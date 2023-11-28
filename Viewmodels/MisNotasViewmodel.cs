@@ -9,6 +9,11 @@ namespace DotNote2.Viewmodels
 {
     public partial class MisNotasViewmodel : BaseViewmodel.BaseViewmodel
     {
+        public string nombre { get; set; }
+        public MisNotasViewmodel()
+        {
+             nombre = App.Usuario.Username;
+        }
 
         private SQLiteService SQLiteService;
         public ObservableCollection<Nota> notas { get; } = new();
@@ -28,6 +33,7 @@ namespace DotNote2.Viewmodels
             SQLiteService = new SQLiteService();
             await SQLiteService.BorrarNotaAsync(id);
             await Obtenernotas();
+            await MostrarMensaje.Informacion("Nota Eliminada");
         }
 
 

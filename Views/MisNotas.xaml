@@ -5,7 +5,7 @@
              x:DataType="vm:MisNotasViewmodel"
              xmlns:m="clr-namespace:DotNote2.Models"
              x:Class="DotNote2.Views.MisNotas"
-             Loaded="ContentPage_Loaded"
+             Loaded="ContentPage"
              Title="MisNotas">
 
 
@@ -22,28 +22,35 @@
             Grid.Row="1"
             ColumnDefinitions="auto,*,*" >
             <Image  Grid.Column="0" Margin="40,10" HeightRequest="150" HorizontalOptions="Start" Source="damaris.jpg" />
-            <Label FontSize="16" Grid.Column="1" Margin="20,40"  Text="Nombre Usuario" ></Label>
-            <ImageButton  Grid.Column="2" HorizontalOptions="Center" Margin="90,10" CornerRadius="50" Padding="10" HeightRequest="60" Source="crear.png" BackgroundColor="SpringGreen" Command="{Binding IrCrearNotaCommand}" />
+            <Label FontSize="16" Grid.Column="1" Margin="20,40"  Text="{Binding nombre}" ></Label>
+            <ImageButton Background="{StaticResource Primary}"  Grid.Column="2" HorizontalOptions="Center" Margin="90,10" CornerRadius="50" Padding="10" HeightRequest="50" Source="crear.png" BackgroundColor="SpringGreen" Command="{Binding IrCrearNotaCommand}" />
         </Grid>
 
         <ScrollView Grid.Row="2" Grid.ColumnSpan="2">
             <CollectionView ItemsSource="{Binding notas}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="m:Nota">
-                        <Frame HeightRequest="190" Margin="30" BackgroundColor="pink">
-                            <Grid  RowSpacing="10"  ColumnDefinitions="*,auto" RowDefinitions="*,*,*">
+                        <Frame  HeightRequest="190" Margin="30" BackgroundColor="{StaticResource Primary}">
+                            <Grid  ColumnDefinitions="*,auto" RowDefinitions="*,*,*">
                                 <Label  FontAttributes="Bold" Padding="30" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0"  Text="{Binding Header}"></Label>
                                 <Label Margin="15" Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0" Grid.Row="1"  Text="{Binding Body}"></Label>
                                 <Label Margin="15" Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0" Grid.Row="2"  Text="{Binding Time}"></Label>
-                                <Button 
+                                <ImageButton 
                                         Grid.Column="1" 
-                                        Text="eliminar"
+                                        Source="eliminar.png"
+                                        BackgroundColor="Wheat"
+                                        Padding="5"
+                                        CornerRadius="5"
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MisNotasViewmodel}}, Path=EliminarCommand}"
                                         CommandParameter="{Binding Id}"/>
                                 <ImageButton
                                         Source="editar.png"
+                                        HeightRequest="15"
                                         Grid.Column="1"
                                         Grid.Row="2"
+                                        Padding="5"
+                                        CornerRadius="5"
+                                        BackgroundColor="Wheat"
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MisNotasViewmodel}}, Path=IrCrearNotaCommand}"
                                         CommandParameter="{Binding .}"/>
                             </Grid>
@@ -62,10 +69,10 @@
             HorizontalOptions="Start" 
             Margin="70,40" 
             CornerRadius="25" 
-            Padding="4" 
-            HeightRequest="15" 
-            WidthRequest="15" 
-            BackgroundColor="Purple"  
+            Padding="5" 
+            HeightRequest="20" 
+            WidthRequest="20" 
+            BackgroundColor="{StaticResource Primary}"  
             Source="contactos.png"/>
 
     </Grid>

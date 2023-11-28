@@ -19,7 +19,7 @@ public partial class MisNotas : ContentPage
         await  Navigation.PushAsync(new Contacto());
     }
 
-    private async void ContentPage_Loaded(object sender, EventArgs e)
+    private async void ContentPage(object sender, EventArgs e)
     {
         await vm.Obtenernotas();
     }
