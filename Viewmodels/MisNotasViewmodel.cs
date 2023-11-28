@@ -11,7 +11,7 @@ namespace DotNote2.Viewmodels
     {
 
         private SQLiteService SQLiteService;
-        ObservableCollection<Nota> notas { get; } = new();
+        public ObservableCollection<Nota> notas { get; } = new();
 
         public async Task Obtenernotas()
         {
