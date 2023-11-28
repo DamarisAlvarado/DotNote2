@@ -23,7 +23,7 @@
             ColumnDefinitions="auto,*,*" >
             <Image  Grid.Column="0" Margin="40,10" HeightRequest="150" HorizontalOptions="Start" Source="damaris.jpg" />
             <Label FontSize="16" Grid.Column="1" Margin="20,40"  Text="{Binding nombre}" ></Label>
-            <ImageButton Background="{StaticResource Primary}"  Grid.Column="2" HorizontalOptions="Center" Margin="90,10" CornerRadius="50" Padding="10" HeightRequest="50" Source="crear.png" BackgroundColor="SpringGreen" Command="{Binding IrCrearNotaCommand}" />
+            <ImageButton Background="{StaticResource Primary}"  Grid.Column="2" HorizontalOptions="Center" Margin="90,10" CornerRadius="50" Padding="10" HeightRequest="50" Source="crear_nota.png" BackgroundColor="SpringGreen" Command="{Binding IrCrearNotaCommand}" />
         </Grid>
 
         <ScrollView Grid.Row="2" Grid.ColumnSpan="2">
