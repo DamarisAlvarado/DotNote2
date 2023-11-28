@@ -6,4 +6,13 @@ public partial class MisNotas : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	public async void Pruebass(object sender, EventArgs e)
+	{
+		await DisplayAlert("DOTNOTE","Si funciono jajaj","Ok");
+	}
+    public async void Contacto(object sender, EventArgs e)
+    {
+        await DisplayAlert("DOTNOTE", "ejemplo de contacto", "Ok");
+    }
 }
