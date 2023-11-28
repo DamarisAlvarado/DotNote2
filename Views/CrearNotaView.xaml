@@ -22,7 +22,7 @@
             Grid.Row="1">
 
             <VerticalStackLayout
-                Padding="15,5"
+                Padding="20,5"
                 Spacing="10">
 
                 <Label Text="Titulo de la nota"/>
@@ -42,7 +42,7 @@
                     WidthRequest="300"
                     HorizontalOptions="Center"/>
 
-                <Image Source="{Binding Image}" />
+                <Image Source="{Binding Image}" Aspect="AspectFill" WidthRequest="100" />
 
             </VerticalStackLayout>
 
