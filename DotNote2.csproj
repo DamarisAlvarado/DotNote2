@@ -51,6 +51,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\amel.jpg" />
 	  <None Remove="Resources\Images\damaris.jpg" />
+	  <None Remove="Resources\Images\mapa.png" />
 	  <None Remove="Resources\Images\sam.jpg" />
 	</ItemGroup>
 
