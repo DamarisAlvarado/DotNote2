@@ -17,7 +17,7 @@ namespace DotNote2
                 });
 
             builder.Services.AddSingleton<CrearNotaViewmodel>();
-            builder.Services.AddSingleton<IniciarSesionVM>();
+            builder.Services.AddSingleton<InicioSesionVM>();
             builder.Services.AddSingleton<MisNotasViewmodel>();
 
 #if DEBUG
