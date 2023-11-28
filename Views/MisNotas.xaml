@@ -3,8 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:DotNote2.Viewmodels"
              x:DataType="vm:MisNotasViewmodel"
+             xmlns:m="clr-namespace:DotNote2.Models"
              x:Class="DotNote2.Views.MisNotas"
+             Loaded="ContentPage_Loaded"
              Title="MisNotas">
+    
     <ScrollView>
         <VerticalStackLayout >
             <Label Text="Mis Notas" FontSize="Medium" Margin="20" FontAttributes="Bold" HorizontalOptions="Center" ></Label>
@@ -14,13 +17,21 @@
                 <ImageButton  Clicked="Pruebass" Grid.Column="2" HorizontalOptions="Center" Margin="90,10" CornerRadius="50" Padding="10" HeightRequest="60" Source="crear.png" BackgroundColor="SpringGreen" Command="{Binding IrCrearNotaCommand}" />
             </Grid>
 
-            <Frame HeightRequest="150" Margin="50" BackgroundColor="pink">
-                <Grid ColumnSpacing="10" RowSpacing="10" ColumnDefinitions="*,auto" RowDefinitions="*,*">
-                    <Label Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0" Grid.RowSpan="2" Text="Hola esta es una prueba de como se vera"></Label>
-                    <ImageButton HeightRequest="5" Background="purple" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1" Source="editar.png"></ImageButton>
-                    <ImageButton HeightRequest="5" BackgroundColor="purple" Grid.Column="1" Grid.Row="1" Source="eliminar.png"></ImageButton>
-                </Grid>
-            </Frame>
+            <CollectionView Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding notas}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{m:Nota}">
+                        <Frame HeightRequest="150" Margin="50" BackgroundColor="pink">
+                            <Grid ColumnSpacing="10" RowSpacing="10" ColumnDefinitions="*,auto" RowDefinitions="*,*">
+                                <Label Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0" Grid.RowSpan="2" Text="{Binding Header}"></Label>
+  
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
 
 
 

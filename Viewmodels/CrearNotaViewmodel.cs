@@ -3,6 +3,8 @@ using CommunityToolkit.Mvvm.Input;
 using DotNote2.Models;
 using DotNote2.Servicios;
 using DotNote2.Servicios.Utilities;
+using System.Collections.ObjectModel;
+using System;
 
 namespace DotNote2.Viewmodels
 {
@@ -21,12 +23,23 @@ namespace DotNote2.Viewmodels
 
         private SQLiteService SQLiteService;
 
+      
         public CrearNotaViewmodel() 
         { 
             SQLiteService = new SQLiteService();
             Header = string.Empty;
             Body = string.Empty;
             ImageAttached = string.Empty;
+        }
+        ObservableCollection<Nota> notas { get; } = new();
+
+        public async Task Obtenernotas()
+        {
+
+            SQLiteService = new SQLiteService();
+            var lista = await SQLiteService.ObtenerMisNotasAsync(App.Usuario);
+            foreach (var nota in lista) { notas.Add(nota); }
+
         }
 
         [RelayCommand]
