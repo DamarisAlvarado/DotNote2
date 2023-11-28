@@ -19,7 +19,7 @@
 
             <CollectionView Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding notas}">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="{m:Nota}">
+                    <DataTemplate x:DataType="m:Nota">
                         <Frame HeightRequest="150" Margin="50" BackgroundColor="pink">
                             <Grid ColumnSpacing="10" RowSpacing="10" ColumnDefinitions="*,auto" RowDefinitions="*,*">
                                 <Label Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="120"  Grid.Column="0" Grid.RowSpan="2" Text="{Binding Header}"></Label>
