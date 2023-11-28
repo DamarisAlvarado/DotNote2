@@ -3,7 +3,7 @@
 namespace DotNote2.Models
 {
     /// <summary>
-    /// Modelo que describe la estructura de un usuario
+    /// Modelo que describe la estructura de un usuario.
     /// </summary>
     public class Usuario
     {
