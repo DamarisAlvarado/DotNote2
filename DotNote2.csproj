@@ -57,6 +57,7 @@
 	  <None Remove="Resources\Images\damaris.jpg" />
 	  <None Remove="Resources\Images\editar.svg" />
 	  <None Remove="Resources\Images\eliminar.svg" />
+	  <None Remove="Resources\Images\email_filled.svg" />
 	  <None Remove="Resources\Images\mapa.png" />
 	  <None Remove="Resources\Images\sam.jpg" />
 	</ItemGroup>

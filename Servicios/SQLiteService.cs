@@ -62,6 +62,11 @@ namespace DotNote2.Servicios
             return await Task.FromResult(await _database.Table<Usuario>().Where(u => u.Username == usuario && u.Password == password).FirstOrDefaultAsync());
         }
 
+        public async Task<Usuario> ObtenerUsuarioAsync(string usuario)
+        {
+            return await Task.FromResult(await _database.Table<Usuario>().Where(u => u.Username == usuario).FirstOrDefaultAsync());
+        }
+
         /// <summary>
         /// Crea o modifica una nota pasada como parametro.
         /// </summary>

@@ -16,5 +16,8 @@
 
         public static async Task<bool> Camara(string pregunta) =>
             await Application.Current.MainPage.DisplayAlert("Medio", pregunta, "Camara", "Galeria");
+
+        public static async Task<string> Email() =>
+            await Application.Current.MainPage.DisplayPromptAsync("Destinatario", "¿A quien dirigido el email?", "Enviar", "Cancelar", "e.j: Samantha", -1, Keyboard.Email);
     }
 }

@@ -55,5 +55,35 @@ namespace DotNote2.Viewmodels
             }
         }
 
+        [RelayCommand]
+        public async Task Email(Nota nota)
+        {
+            try
+            {
+                IsBusy = true;
+
+                var usuario = await MostrarMensaje.Email();
+                var user = await SQLiteService.ObtenerUsuarioAsync(usuario);
+
+                if (user != null)
+                {
+                    if (await EmailService.EnviarEmailAsync(App.Usuario, user, nota))
+                    {
+                        await MostrarMensaje.Informacion("Se envio el email con exito");
+                        return;
+                    }
+                }
+                await MostrarMensaje.Precaucion($"El usuario no existe");
+            }
+            catch (Exception ex)
+            {
+                await MostrarMensaje.Error($"Email: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
+                await Obtenernotas();
+            }
+        }
     }
 }
