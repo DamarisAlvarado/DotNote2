@@ -48,7 +48,7 @@ namespace DotNote2.Viewmodels
             {
                 await MostrarMensaje.Informacion("Usuario no creado");
             }
-            await Application.Current.MainPage.Navigation.PopAsync();
+            await Application.Current.MainPage.Navigation.PopAsync(); 
         }
 
     }
