@@ -40,7 +40,14 @@
                 HorizontalOptions="Center"/>
 
         </VerticalStackLayout>
-        
+
+        <Button 
+            Grid.Row="2"
+            Text="Guardar"
+            Command="{Binding CrearNotaCommand}"
+            WidthRequest="300"
+            HorizontalOptions="Center" />
+
     </Grid>
     
 </ContentPage>
