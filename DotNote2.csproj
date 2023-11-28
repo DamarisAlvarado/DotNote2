@@ -49,11 +49,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\amel.jpg" />
+	  <None Remove="Resources\Images\damaris.jpg" />
+	  <None Remove="Resources\Images\sam.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="view\Contacto.xaml">
+	  <MauiXaml Update="Views\Contacto.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

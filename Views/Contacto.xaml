@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DotNote2.view.Contacto"
+             Title="Contacto">
+    <VerticalStackLayout Margin="20" >
+        <Label FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" Margin="20">Información Soporte</Label>
+
+        <Frame BorderColor="Gray" 
+    CornerRadius="5"
+ HeightRequest="300"
+
+          
+    Padding="10">
+            <Grid RowDefinitions="auto,auto,auto,auto" ColumnDefinitions="*,*,*" >
+
+                <Image Grid.Row="0"  Grid.Column="0" Source="damaris.jpg" HeightRequest="150"/>
+                <Image Grid.Row="0"  Grid.Column="1" Source="sam.jpg" HeightRequest="150"/>
+                <Image Grid.Row="0"  Grid.Column="2" Source="amel.jpg" HeightRequest="150"/>
+                <Label Margin="10" Grid.Row="1" HorizontalOptions="Center"   Grid.Column="0"  Text="Puesto: Desarollador Java"></Label>
+                <Label Margin="10" Grid.Row="1" HorizontalOptions="Center"    Grid.Column="1"  Text="Puesto: Desarrollador UX"></Label>
+                <Label Margin="10" Grid.Row="1" HorizontalOptions="Center"  Grid.Column="2" Text="Puesto: Desarrollador .NET."></Label>
+                <Label Margin="5" Grid.Row="2" HorizontalOptions="Center"   Grid.Column="0" FontAttributes="Bold" Text="Damaris Alvarado."></Label>
+                <Label Margin="5" Grid.Row="2" HorizontalOptions="Center"    Grid.Column="1" FontAttributes="Bold"  Text="Samantha Flores."></Label>
+                <Label Margin="5" Grid.Row="2" HorizontalOptions="Center"  Grid.Column="2" FontAttributes="Bold" Text="Amel Delgado."></Label>
+                <Button Margin="5" Grid.Row="3" Grid.Column="0" Text="Más Información" Clicked="clicnuevo" />
+                <Button Margin="5" Grid.Row="3" Grid.Column="1" Text="Más Información" Clicked="clicnuevoSam" />
+                <Button Margin="5" Grid.Row="3" Grid.Column="2" Text="Más Información" Clicked="clicnuevoAmel" />
+
+
+
+
+
+            </Grid>
+        </Frame>
+
+
+
+
+    </VerticalStackLayout>
+</ContentPage>
