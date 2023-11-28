@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DotNote2.Viewmodels"
              x:Class="DotNote2.MainPage">
 
     <ScrollView>
@@ -18,7 +19,7 @@
                 HorizontalOptions="Center"
                 WidthRequest="150"/>
 
-            <Entry Text="texto"
+            <Entry Text=""
                    HorizontalOptions="Center"
                    WidthRequest="250"
                    Placeholder="Usuario"/>
@@ -29,10 +30,11 @@
                    Placeholder="Contraseña"/>
 
             <Button Text="Iniciar sesion"
+                    Command="{}"
                     WidthRequest="300"/>
 
             <Button Text="Registrarse"
-                    
+                    "
                     WidthRequest="300"/>
 
         </VerticalStackLayout>
