@@ -14,7 +14,7 @@
                    HorizontalOptions="Center" />
             
             <Image
-                Source="contactos.png"
+                Source="usuario.png"
                 HorizontalOptions="Center"
                 WidthRequest="150"/>
 
