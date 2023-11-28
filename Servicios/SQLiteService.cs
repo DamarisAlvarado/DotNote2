@@ -143,5 +143,10 @@ namespace DotNote2.Servicios
         {
             return await Task.FromResult(await _database.Table<Nota>().Where(n => n.IsSaved == 1 && n.Header.Contains(busqueda) && n.Username == user.Username).ToListAsync());
         }
+
+        internal Task BorrarNotaAsync(Usuario usuario)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

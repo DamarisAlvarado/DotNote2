@@ -21,6 +21,16 @@ namespace DotNote2.Viewmodels
             foreach (var nota in lista) { notas.Add(nota); }
 
         }
+        public async Task Eliminar()
+        {
+          // no funciona 
+            SQLiteService = new SQLiteService();
+            await SQLiteService.BorrarNotaAsync(App.Usuario);
+            
+
+        }
+
+
         [RelayCommand]
         public async Task IrCrearNota()
         {
