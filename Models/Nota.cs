@@ -22,6 +22,11 @@ namespace DotNote2.Models
         public int IsSaved { get; set; }
 
         /// <summary>
+        /// Usuario que lo creo.
+        /// </summary>
+        public string Username { get; set; }
+
+        /// <summary>
         /// Encabezado o titulo de la nota.
         /// </summary>
         public string Header { get; set; }
