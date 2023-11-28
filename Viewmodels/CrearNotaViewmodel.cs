@@ -19,14 +19,20 @@ namespace DotNote2.Viewmodels
         public string ImageAttached;
 
         private SQLiteService SQLiteService;
-
+        private Nota Nota;
       
-        public CrearNotaViewmodel() 
-        { 
+        public CrearNotaViewmodel(Nota? nota) 
+        {
             SQLiteService = new SQLiteService();
             Header = string.Empty;
             Body = string.Empty;
             ImageAttached = string.Empty;
+            if(nota != null)
+            {
+                Nota = nota;
+                Header = nota.Header;
+                Body = nota.Body;
+            }
         }
         ObservableCollection<Nota> notas { get; } = new();
 
@@ -46,24 +52,33 @@ namespace DotNote2.Viewmodels
             {
                 IsBusy = true;
 
-                var nota = new Nota()
+                if (Nota == null)
                 {
-                    IsSaved = 0,
-                    Username = App.Usuario.Username,
-                    Header = Header,
-                    Body = Body,
-                    ImageAttached = ImageAttached,
-                    Date = DateTime.Today.ToString("dd-MMM-yyyy"),
-                    Time = DateTime.Now.ToString("hh:mm:ss tt")
-                };
+                    Nota = new Nota()
+                    {
+                        IsSaved = 0,
+                        Username = App.Usuario.Username,
+                        Header = Header,
+                        Body = Body,
+                        ImageAttached = ImageAttached,
+                        Date = DateTime.Today.ToString("dd-MMM-yyyy"),
+                        Time = DateTime.Now.ToString("hh:mm:ss tt")
+                    };
+                } 
+                else
+                {
+                    Nota.Header = Header;
+                    Nota.Body = Body;
+                }
 
-                if(!await SQLiteService.CrearModificarNotaAsync(nota))
+
+                if(!await SQLiteService.CrearModificarNotaAsync(Nota))
                 {
-                    await MostrarMensaje.Precaucion("No se pudo crear la nota");
+                    await MostrarMensaje.Precaucion("No se pudo guardar la nota");
                     return;
                 }
 
-                await MostrarMensaje.Informacion("Nota creada con exito");
+                await MostrarMensaje.Informacion("Nota guardada con exito");
             }
             catch(Exception ex)
             {
