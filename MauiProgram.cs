@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DotNote2.Viewmodels;
+using Microsoft.Extensions.Logging;
 
 namespace DotNote2
 {
@@ -14,6 +15,10 @@ namespace DotNote2
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddSingleton<CrearNotaViewmodel>();
+            builder.Services.AddSingleton<IniciarSesionVM>();
+            builder.Services.AddSingleton<MisNotasViewmodel>();
 
 #if DEBUG
 		builder.Logging.AddDebug();

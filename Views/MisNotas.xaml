@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DotNote2.Viewmodels"
+             x:DataType="vm:MisNotasViewmodel"
              x:Class="DotNote2.Views.MisNotas"
              Title="MisNotas">
     <ScrollView>
@@ -9,7 +11,7 @@
             <Grid ColumnDefinitions="auto,*,*" >
                 <Image  Grid.Column="0" Margin="40,10" HeightRequest="150" HorizontalOptions="Start" Source="damaris.jpg" />
                 <Label FontSize="16" Grid.Column="1" Margin="20,40"  Text="Nombre Usuario" ></Label>
-                <ImageButton  Clicked="Pruebass" Grid.Column="2" HorizontalOptions="Center" Margin="90,10" CornerRadius="50" Padding="10" HeightRequest="60" Source="crear.png" BackgroundColor="SpringGreen" />
+                <ImageButton  Clicked="Pruebass" Grid.Column="2" HorizontalOptions="Center" Margin="90,10" CornerRadius="50" Padding="10" HeightRequest="60" Source="crear.png" BackgroundColor="SpringGreen" Command="{Binding IrCrearNotaCommand}" />
             </Grid>
 
             <Frame HeightRequest="150" Margin="50" BackgroundColor="pink">

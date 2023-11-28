@@ -14,7 +14,7 @@ namespace DotNote2.Servicios
         /// <summary>
         /// Componente que realiza las tareas con la base de datos.
         /// </summary>
-        private SQLiteAsyncConnection _database;
+        private readonly SQLiteAsyncConnection _database;
 
         /// <summary>
         /// Constructor, inicia una vez se crea un nuevo objeto.

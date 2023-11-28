@@ -1,3 +1,5 @@
+using DotNote2.Viewmodels;
+
 namespace DotNote2.Views;
 
 public partial class MisNotas : ContentPage
@@ -5,6 +7,7 @@ public partial class MisNotas : ContentPage
 	public MisNotas()
 	{
 		InitializeComponent();
+		BindingContext = new MisNotasViewmodel();
 	}
 
 	public async void Pruebass(object sender, EventArgs e)
