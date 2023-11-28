@@ -78,7 +78,7 @@
 	  <MauiXaml Update="Views\MisNotas.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Registrar.xaml">
+	  <MauiXaml Update="Views\RegistroView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

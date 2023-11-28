@@ -42,7 +42,7 @@ namespace DotNote2.Viewmodels
         [RelayCommand]
         public async Task IrRegistrar()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new Registrar());
+            await Application.Current.MainPage.Navigation.PushAsync(new RegistroView);
         }
     }
 }
