@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DotNote2.Models;
 using DotNote2.Servicios;
+using DotNote2.Servicios.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +34,19 @@ namespace DotNote2.Viewmodels
         [RelayCommand]
         public async Task Registrar()
         {
+            Usuario usuario = new Usuario()
+            {
+                Username = username, Password = password, Email = email
+            };
+            if(await sqlite.CrearModificaraUsuarioAsync(usuario)) 
+            {
+                
+            }
+            else
+            {
 
+            }
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
 
     }
